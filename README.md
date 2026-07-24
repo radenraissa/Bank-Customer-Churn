@@ -37,9 +37,8 @@ This project aims to:
 
 ## 🔄 Project Workflow
 
-```
+
 ![Project Pipeline](images/Pipeline.png)
-```
 
 ---
 
