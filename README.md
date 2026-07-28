@@ -74,31 +74,40 @@ Two ensemble learning algorithms were developed and compared.
 
 ## 📈 Model Performance
 
-| Model | Accuracy | F1 Score |
-|--------|----------|----------|
-| Baseline Random Forest | **0.8695** | 0.5991 |
-| Best Random Forest | 0.8580 | 0.6312 |
-| Best XGBoost | 0.8545 | **0.6403** |
+| Model | Accuracy | Macro F1 |
+|---|---|---|
+| Baseline Random Forest | 0.8695 | 0.7606 |
+| Best Random Forest (thr=0.5) | 0.8555 | 0.7683 |
+| Best Random Forest (tuned thr) | 0.8555 | 0.7683 |
+| Best XGBoost (thr=0.5) | 0.8640 | **0.7786** |
+| Best XGBoost (tuned thr) | 0.8415 | 0.7689 |
 
-Although the baseline Random Forest achieved the highest accuracy, the tuned XGBoost model produced the highest F1 Score, making it the preferred model for customer churn prediction.
+**Best model: XGBoost (default threshold = 0.5)** — 0.864 accuracy / 0.7786 macro F1.
+
+Threshold tuning (searching for the decision cutoff that maximizes macro F1 on a held-out validation set) was tested for both models. It made no difference for Random Forest and slightly *hurt* XGBoost's test performance — a sign the "optimal" threshold was partly fitting noise in the validation split rather than a pattern that generalizes. The default threshold (0.5) was kept for the final model as the more reliable choice.
 
 ---
 
 
 ## 📁 Dataset
 
-The dataset contains information from **10,000 bank customers**, including:
+The dataset contains information from 10,000 bank customers, including:
 
-- Credit Score
+- CustomerId
+- CreditScore
 - Geography
 - Gender
 - Age
+- Tenure
 - Balance
-- Number of Products
-- Card Type
-- Customer Activity
-- Satisfaction Score
-- Estimated Salary
-- Churn Status
+- NumOfProducts
+- HasCrCard
+- IsActiveMember
+- EstimatedSalary
+- Exited
+- Complain
+- SatisfactionScore
+- CardType
+- PointEarned
 
 ---
