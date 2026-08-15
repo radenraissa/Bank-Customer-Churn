@@ -2,7 +2,7 @@
 
 An end-to-end Data Analytics and Machine Learning project that analyzes customer churn behavior and predicts customers who are likely to leave a bank.
 
-The project covers the complete analytics pipeline, from data preprocessing and exploratory analysis to dashboard development and predictive modeling.
+The project covers the complete analytics pipeline, from data preprocessing and exploratory analysis to dashboard development and predictive modeling. A key part of this project was catching `Complain` as a data leakage feature, it matched the target 99.86% of the time, which would have inflated model performance to ~99% without reflecting anything a bank could realistically predict in advance. After removing it, RandomForest and XGBoost were tuned and compared under an identical setup (same resampling, same cross-validation folds, same threshold-tuning procedure) to make sure the final model choice was a fair one rather than an artifact of mismatched pipelines.
 
 ---
 
